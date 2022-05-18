@@ -1,0 +1,83 @@
+﻿@page "/usuario"
+@using Model
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Home Track | Usuarios</PageTitle>
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="pa-5" Elevation="3">
+            <MudItem Class="d-flex align-center justify-center mud-width-full" xs="12">
+                <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">Usuarios</MudText>
+                </MudItem>
+
+                <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                    <MudButton Variant="Variant.Filled" EndIcon="@Icons.Filled.AddBox" Color="Color.Primary" Size="Size.Small" OnClick="Btn_Nuevo_Usuario_Click">NUEVO</MudButton>
+                </MudItem>
+            </MudItem>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12">
+        <MudTable Items="@Lst_Usuario"
+                  RowsPerPage="@RegistroPagina"
+                  FixedHeader="true"
+                  Dense="true"
+                  Hover="true"
+                  Striped="true"
+                  Breakpoint="Breakpoint.Sm"
+                  RightAlignSmall="true"
+                  Loading="@(Lst_Usuario.Count == 0)"
+                  LoadingProgressColor="Color.Primary"
+                  Height="466px"
+                  Elevation = "3">
+            @*    <ToolBarContent>
+                <MudText Typo="Typo.h6">Listado de Usuarios</MudText>
+                </ToolBarContent>*@
+            <ToolBarContent>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudTextField T="string" ValueChanged="@(searchTerm => OnSearch(searchTerm))" Placeholder="Buscar por Nombre"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </MudItem>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>RUT</MudTh>
+                <MudTh>RAZÓN SOCIAL</MudTh>
+                <MudTh>TELÉF. MÓVIL</MudTh>
+                <MudTh>EMAIL</MudTh>
+                <MudTh>ROL</MudTh>
+                <MudTh>FEC./HOR. REGISTRO</MudTh>
+                <MudTh>CONDICIÓN</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                @*<MudTd DataLabel="Image">
+                    <MudAvatar Color="Color.Transparent" Size="Size.Large" Image="@context.ImageUrl" />
+                    </MudTd>*@
+                <MudTd DataLabel="RUT">
+                    <MudLink Typo="Typo.body2" Href="@($"usuariodetalle/{context.Usu_Id}")">@context.Usu_NumRUT.ToUpper()</MudLink>
+                </MudTd>
+                <MudTd DataLabel="RAZÓN SOCIAL">@context.Usu_NomApeRazSoc.ToUpper()</MudTd>
+                <MudTd DataLabel="TELÉF. MÓVIL">@context.Usu_NumTelMov.ToUpper()</MudTd>
+                <MudTd DataLabel="EMAIL">@context.Usu_Email</MudTd>
+                <MudTd DataLabel="ROL">@context.eRol.Rol_Nombre</MudTd>
+                <MudTd DataLabel="FEC./HOR. REGISTRO">@context.Usu_FecHorRegistro</MudTd>
+                <MudTd DataLabel="CONDICIÓN">@(Convert.ToBoolean(context.Usu_Condicion) ? "HABILITADO" : "INHABILITADO")</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <div class="d-flex flex-column align-center">
+                    <MudPagination Size="Size.Small" Rectangular="true" Variant="Variant.Text" BoundaryCount="1" MiddleCount="3" Count="@TotalPagina" SelectedChanged="PageChanged" Class="pa-4" />
+                </div>
+            </PagerContent>
+            <NoRecordsContent>
+                <MudText>No se encontraron registros.</MudText>
+            </NoRecordsContent>
+            <LoadingContent>
+                <MudText>Un momento por favor...</MudText>
+            </LoadingContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+
+<br />

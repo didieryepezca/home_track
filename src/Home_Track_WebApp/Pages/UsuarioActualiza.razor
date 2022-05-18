@@ -1,0 +1,113 @@
+﻿@page "/usuarioactualiza/{Usu_Id:int}"
+@using Model
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Home Track | Actualiza Usuario</PageTitle>
+
+<section Style="max-width:600px; margin: 0 auto;">
+    <MudGrid>
+        <MudItem xs="12">
+            <MudPaper Class="pa-5" Elevation="3">
+                <MudItem Class="d-flex align-center justify-center mud-width-full" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">
+                           Actualizar Usuario
+                        </MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Filled.Backspace" Color="Color.Primary" Size="Size.Small" OnClick="Btn_Regresar">Regresar</MudButton>
+                    </MudItem>
+                </MudItem>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12">
+            <MudPaper Class="pa-5" Elevation="3">
+                <MudForm Model="@oUsuarioActualizadoDTO" @ref="@form" Validation="@(oUsuarioActualizadoDTOFluentValidator.ValidateValue)" ValidationDelay="0">
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_NumRUT"
+                                    Label="RUT"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_NumRUT)"/>
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_NomApeRazSoc"
+                                    Label="Razón Social"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_NomApeRazSoc)"/>
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_NumTelMov"
+                                    Label="Núm. Teléf. Móvil"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_NumTelMov)"/>
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_Email"
+                                    Label="Email"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_Email)"/>
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_Domicilio"
+                                    Label="Domicilio"
+                                    Variant="Variant.Outlined"
+                                    Lines="3"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_Domicilio)"/>
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="oUsuarioActualizadoDTO.Usu_Observacion"
+                                    Label="Observación"
+                                    Variant="Variant.Outlined"
+                                    Lines="3"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Filled.Description"
+							        For="@(() => oUsuarioActualizadoDTO.Usu_Observacion)"/>
+                    <MudSelect Class="mb-5"
+                               @bind-Value="oRol.Rol_Nombre"
+                               Dense="true"
+                               T="string"
+                               Label="Seleccione el Rol"
+                               AnchorOrigin="Origin.BottomCenter"
+                               Variant="Variant.Outlined"
+                               Margin="Margin.Dense"
+                               Adornment="Adornment.End"
+                               AdornmentIcon="@Icons.Filled.Description"
+                               Clearable
+                               For="@(() => oRol.Rol_Nombre)">
+                    @foreach (var Rol in Lst_Rol)
+                    {
+                        <MudSelectItem Value="@Rol.Rol_Nombre"/>
+                    }
+                    </MudSelect>
+	            </MudForm>
+                <MudItem Class="d-flex justify-center align-center" xs="12">
+                    <MudButton Variant="Variant.Filled" Size="Size.Small" EndIcon="@Icons.Material.Filled.Save" Color="Color.Primary" OnClick="@(async ()=> await Usuario_Actualiza())">
+                        @if (_processing)
+                        {
+                            <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" Color="Color.Dark"/>
+                            <MudText Typo="Typo.button" Class="ms-2">Actualizando</MudText>
+                        }
+                        else
+                        {
+                            <MudText Typo="Typo.button">Actualizar</MudText>
+                        }
+                    </MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</section>
+
+<br />

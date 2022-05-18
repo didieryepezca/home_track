@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+	<AppBar OnSidebarToggled="ToggleSidebar" OnThemeToggled="ToggleTheme" />
+	<AuthorizeView>
+		<Authorized>
+			<NavMenu SideBarOpen="_sidebarOpen"/>
+		</Authorized>
+	</AuthorizeView>
+	<MudMainContent Class="pt-16">
+		<MudContainer Class="mt-6">
+			@Body
+		</MudContainer>
+	</MudMainContent>
+</MudLayout>
+
+<MudThemeProvider Theme="_currentTheme" />
+
+<MudDialogProvider
+    FullWidth="true"
+    MaxWidth="MaxWidth.ExtraSmall"
+    CloseButton="false"
+    DisableBackdropClick="true"
+    NoHeader="false"
+    Position="DialogPosition.Center"
+    CloseOnEscapeKey="false"
+/>
+
+@code {
+	private MudTheme _currentTheme = null;
+	private bool _sidebarOpen = true;
+
+	private void ToggleTheme(MudTheme changedTheme) => _currentTheme = changedTheme;
+
+	private void ToggleSidebar() => _sidebarOpen = !_sidebarOpen;
+}

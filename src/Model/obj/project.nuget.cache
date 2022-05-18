@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "s8rRQJvO05iYdou+G0FZ5EhM29K7OEgtCugVdSzhtgbJrlvVDMYY/ffSHVoQsL7f+tmjGJnk34j9HXCABZTxXg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\didie\\source\\repos\\home_track\\src\\Model\\Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\didie\\.nuget\\packages\\fluentvalidation\\10.4.0\\fluentvalidation.10.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

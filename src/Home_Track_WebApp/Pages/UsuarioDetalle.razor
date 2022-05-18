@@ -1,0 +1,104 @@
+﻿@page "/usuariodetalle/{Usu_Id:int}"
+@using Model
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Home Track | Detalle de Usuario</PageTitle>
+
+<section Style="max-width:600px; margin: 0 auto;">
+    <MudGrid>
+        <MudItem xs="12">
+            <MudPaper Class="pa-5" Elevation="3">
+                <MudItem Class="d-flex align-center justify-center mud-width-full" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">
+                            Detalle de Usuario
+                        </MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                         <MudButton Variant="Variant.Filled" EndIcon="@Icons.Filled.Edit" Color="Color.Primary" Size="Size.Small" OnClick="Btn_Actualiza_Usuario_Click">ACTUALIZAR</MudButton>
+                    </MudItem>
+                </MudItem>
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="12">
+            <MudPaper Class="pa-5" Elevation="3">
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">RUT</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_NumRUT</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">RAZÓN SOCIAL</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_NomApeRazSoc</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">TELÉF. MÓVIL</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_NumTelMov</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">EMAIL</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_Email</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">DOMICILIO</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_Domicilio</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">ROL</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oRol.Rol_Nombre</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">OBSERVACIÓN</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_Observacion</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">FEC./HOR. REGISTRO</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@oUsuario.Usu_FecHorRegistro</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                        <MudText Align="Align.Start" Typo="Typo.subtitle2">CONDICIÓN</MudText>
+                    </MudItem>
+                    <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                        <MudText Align="Align.End" Typo="Typo.body2">@(Convert.ToBoolean(oUsuario.Usu_Condicion) ? "HABILITADO" : "INHABILITADO")</MudText>
+                    </MudItem>
+                </MudItem>
+                <MudItem Class="d-flex align-center justify-center" xs="12">
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Filled.Backspace" Color="Color.Primary" Size="Size.Small" OnClick="Btn_Regresar">Regresar</MudButton>
+                </MudItem>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</section>

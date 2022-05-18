@@ -1,0 +1,65 @@
+﻿@page "/login"
+@using FluentValidation
+
+<PageTitle>Home Track | Login</PageTitle>
+
+@*@if (ShowAuthError)
+{
+    <div class="alert alert-danger" role="alert">
+        <p>@Error</p>
+    </div>
+}*@
+
+<section Style="max-width:600px; margin: 0 auto;">
+    <MudGrid>
+        <MudItem Class="d-flex justify-center align-center" xs="12">
+            <MudImage Src="img/Logo-home-track.png" Height="100" Alt="Logo Home Track"/>
+        </MudItem>
+        <MudItem Class="d-flex justify-center align-center" xs="12">
+            <MudText Align=Align.Center Typo="Typo.h5" Color="Color.Primary">Credenciales de Acceso</MudText>
+        </MudItem>
+        <MudItem xs="12">
+            <MudPaper Class="pa-5" Elevation="3">
+                <MudForm Model="@userForAuthentication" @ref="@form" Validation="@(UserForAuthenticationValidator.ValidateValue)" ValidationDelay="0">
+                    <MudTextField Class="mb-5" 
+                                    @bind-Value="userForAuthentication.Adm_Email"
+                                    AutoFocus = "true"
+                                    Label="Email"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@Icons.Material.Filled.Email"
+                                    OnAdornmentClick="ButtonTestclick_Email"
+							        For="@(() => userForAuthentication.Adm_Email)"
+							        Immediate="true"/>
+
+			        <MudTextField Class="mb-5"
+                                    @bind-Value="userForAuthentication.Adm_Contra"
+                                    Label="Clave Segura"
+                                    Variant="Variant.Outlined"
+                                    Margin="Margin.Dense"
+                                    InputType="@TipoIngresoClave"
+                                    Adornment="Adornment.End"
+                                    AdornmentIcon="@TipoIngresoClaveIcono"
+                                    OnAdornmentClick="ButtonTestclick_Clave"
+                                    AdornmentAriaLabel="Mostrar Clave"
+                                    For="@(() => userForAuthentication.Adm_Contra)"
+                                    OnKeyDown = "ExecuteLoginKeyPress"/>
+                    <MudItem Class="d-flex justify-center align-center" xs="12">
+                        <MudButton @ref="@Boton" Variant="Variant.Filled" EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary" OnClick="@(async ()=> await InicioSesion())">
+                            @if (_processing)
+                            {
+                                <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" Color="Color.Dark"/>
+                                <MudText Class="ms-2">Ingresando</MudText>
+                            }
+                            else
+                            {
+                                <MudText>Ingresar</MudText>
+                            }
+                        </MudButton>
+                    </MudItem>
+	            </MudForm>
+            </MudPaper>
+        </MudItem>
+    </MudGrid> 
+</section>

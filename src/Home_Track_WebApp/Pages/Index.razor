@@ -1,0 +1,11 @@
+﻿@page "/"
+@page "/index"
+
+<AuthorizeView>
+    <Authorized>
+        <Principal/>
+    </Authorized>
+    <NotAuthorized>
+        <Login/>
+    </NotAuthorized>
+</AuthorizeView>

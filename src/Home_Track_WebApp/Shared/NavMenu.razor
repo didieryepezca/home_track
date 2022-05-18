@@ -1,0 +1,49 @@
+﻿@using Home_Track_WebApp.HttpRepository
+
+<MudDrawer @bind-Open="SideBarOpen" Elevation="3">
+	<MudDrawerHeader Class="d-flex justify-center align-center">
+		<MudImage Src="img/Logo-home-track.png" Height="100" Alt="Logo Proteger"/>
+		@*<MudText Typo="Typo.h5" Color="Color.Primary" Style="margin-top:10px; margin-left:10px;">ON Seguridad</MudText>*@
+	</MudDrawerHeader>
+	<MudNavMenu Color="Color.Primary" Bordered="true">
+	<AuthorizeView Roles="ADMINISTRADOR">
+		<Authorized>
+			<MudNavLink Href="/Principal" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Página Principal</MudNavLink>
+			<MudDivider Class="my-2"/>
+			<MudNavLink Href="/Usuario" Icon="@Icons.Filled.AccountBox">Usuarios</MudNavLink>
+		</Authorized>
+	</AuthorizeView>
+
+	<AuthorizeView Roles="BPO">
+		<Authorized>
+			<MudNavLink Href="/Principal" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Página Principal</MudNavLink>
+			<MudDivider Class="my-2"/>
+			<MudNavGroup Title="Crédito Hipotecario" Icon="@Icons.Filled.DashboardCustomize" Expanded="true">
+				<MudNavLink Href="/propiedad" Icon="@Icons.Filled.Assessment">Datos del Inmueble</MudNavLink>
+			</MudNavGroup>
+		</Authorized>
+	</AuthorizeView>
+
+	<AuthorizeView Roles="CLIENTE FINAL">
+		<Authorized>
+			<MudNavLink Href="/Principal" Match="NavLinkMatch.All" Icon="@Icons.Filled.Home">Página Principal</MudNavLink>
+			<MudDivider Class="my-2"/>
+			<MudNavGroup Title="Crédito Hipotecario" Icon="@Icons.Filled.DashboardCustomize" Expanded="true">
+				<MudNavLink Href="/ProcesoCredito" Icon="@Icons.Filled.Assessment">Proceso de Crédito</MudNavLink>
+				<MudNavLink Href="/DatoCredito" Icon="@Icons.Filled.Assessment">Datos del Crédito</MudNavLink>
+				<MudNavLink Href="/DatoInmueble" Icon="@Icons.Filled.Assessment">Datos del Inmueble</MudNavLink>
+				<MudNavLink Href="/Cronograma" Icon="@Icons.Filled.Assessment">Cronograma</MudNavLink>
+				<MudNavLink Href="/EstadoDocumento" Icon="@Icons.Filled.Assessment">Estado de Documentos</MudNavLink>
+			</MudNavGroup>
+			<MudNavLink Href="/AdjuntaDocumento" Icon="@Icons.Filled.DocumentScanner">Adjuntar Documentos</MudNavLink>
+			<MudNavLink Href="/FirmaDigital" Icon="@Icons.Filled.PhotoFilter">Firma Digital</MudNavLink>
+			<MudNavLink Href="/Historial" Icon="@Icons.Filled.ListAlt">Historial</MudNavLink>
+		</Authorized>
+	</AuthorizeView>
+	</MudNavMenu>
+</MudDrawer>
+
+@code {
+	[Parameter]
+	public bool SideBarOpen { get; set; }
+}

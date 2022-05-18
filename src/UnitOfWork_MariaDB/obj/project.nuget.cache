@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4kzB5ybh6Hs7HdFG1Lt7UUa3aA62LfunQUrO32ABTarhfOr8i3jfFpFdsRVQ27CfWL5xH0zu9pN+y8DtM/ab3Q==",
+  "success": true,
+  "projectFilePath": "D:\\INGENIERIA\\PROYECTO\\Home_Track\\src\\UnitOfWork_MariaDB\\UnitOfWork_MariaDB.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ingfa\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ingfa\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\ingfa\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

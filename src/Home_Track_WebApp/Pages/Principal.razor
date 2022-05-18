@@ -1,0 +1,28 @@
+﻿@page "/principal"
+@using Model
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Home Track | Página Principal</PageTitle>
+
+<MudPaper Elevation="3" Class="pa-5">
+    <MudGrid>
+        <MudItem Class="d-flex flex-column align-center justify-center" xs="12">
+
+            <MudText Align="Align.Center" Typo="Typo.h4" Color="Color.Primary"> Bienvenido(a) al Sistema Home Track </MudText>
+            <MudText Align="Align.Center" Typo="Typo.h6" Color="Color.Secondary"> administración universal de Créditos Hipotecarios. </MudText>
+            <MudText Align="Align.Center">
+                No dude en visitar la <MudLink Href="#" Target="_blank" Typo="Typo.h6">
+                    documentación oficial
+                </MudLink>
+                en cualquier momento que lo desee.
+            </MudText>
+        </MudItem>
+        @*<MudItem Class="d-flex align-center justify-center mud-width-full" xs="12" sm="6">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Filled.Backspace" Color="Color.Primary" Size="Size.Small">BOTON 01</MudButton>
+        </MudItem>
+        <MudItem Class="d-flex align-center justify-center mud-width-full" xs="12" sm="6">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Filled.Backspace" Color="Color.Primary" Size="Size.Small">BOTON 02</MudButton>
+        </MudItem>*@
+    </MudGrid>
+</MudPaper>

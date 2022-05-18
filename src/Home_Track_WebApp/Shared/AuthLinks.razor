@@ -1,0 +1,16 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <MudHidden Breakpoint="Breakpoint.Xs" Invert="false">
+			<MudMenu Label=@context.User.Identity.Name Variant="Variant.Filled" StartIcon="@Icons.Filled.Person" EndIcon="@Icons.Filled.KeyboardArrowDown" FullWidth="true" Color="Color.Primary" IconColor="Color.Inherit" Dense="true" AnchorOrigin="Origin.BottomCenter" TransformOrigin="Origin.TopCenter">
+                <MudMenuItem Href="#">Ajustes</MudMenuItem>
+                <MudMenuItem Href="/Logout">Cerrar Sesión</MudMenuItem>
+            </MudMenu>
+		</MudHidden>
+        <MudHidden Breakpoint="Breakpoint.Xs" Invert="true">
+            <MudMenu Variant="Variant.Filled" Icon="@Icons.Filled.Person" Color="Color.Primary" IconColor="Color.Inherit" Dense="true" AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <MudMenuItem  Href="#">Ajustes</MudMenuItem>
+                <MudMenuItem Href="/logout">Cerrar Sesión</MudMenuItem>
+            </MudMenu>
+		</MudHidden>
+    </Authorized>
+</AuthorizeView>

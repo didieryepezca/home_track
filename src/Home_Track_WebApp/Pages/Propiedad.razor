@@ -1,0 +1,85 @@
+﻿@page "/propiedad"
+@using Model
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<PageTitle>Home Track | Propiedads</PageTitle>
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="pa-5" Elevation="3">
+            <MudItem Class="d-flex align-center justify-center mud-width-full" xs="12">
+                <MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">Inmuebles</MudText>
+                </MudItem>
+
+                <MudItem Class="d-flex align-center justify-end mud-width-full" xs="6">
+                    <MudButton Variant="Variant.Filled" EndIcon="@Icons.Filled.AddBox" Color="Color.Primary" Size="Size.Small" OnClick="Btn_Nuevo_Propiedad_Click">NUEVO</MudButton>
+                </MudItem>
+            </MudItem>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12">
+        <MudTable Items="@Lst_Propiedad"
+                  RowsPerPage="@RegistroPagina"
+                  FixedHeader="true"
+                  Dense="true"
+                  Hover="true"
+                  Striped="true"
+                  Breakpoint="Breakpoint.Sm"
+                  RightAlignSmall="true"
+                  Loading="@(Lst_Propiedad.Count == 0)"
+                  LoadingProgressColor="Color.Primary"
+                  Height="466px"
+                  Elevation = "3">
+            @*    <ToolBarContent>
+                <MudText Typo="Typo.h6">Listado de Propiedads</MudText>
+                </ToolBarContent>*@
+            <ToolBarContent>
+                <MudItem Class="d-flex align-center justify-center mud-width-full pb-5" xs="12">
+                    <MudTextField T="string" ValueChanged="@(searchTerm => OnSearch(searchTerm))" Placeholder="Buscar por Nombre"
+                              Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                </MudItem>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>NRO.</MudTh>
+                <MudTh>UBICACIÓN</MudTh>
+                <MudTh>TIPOL</MudTh>
+                <MudTh>ESTADO</MudTh>
+                <MudTh>VALOR</MudTh>
+                <MudTh>FEC./HOR. REGISTRO</MudTh>
+                <MudTh>CONDICIÓN</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                @*<MudTd DataLabel="Image">
+                    <MudAvatar Color="Color.Transparent" Size="Size.Large" Image="@context.ImageUrl" />
+                    </MudTd>*@
+                <MudTd DataLabel="NRO.">
+                    <MudLink Typo="Typo.body2">@context.Pro_Id</MudLink>
+                </MudTd>
+                <MudTd DataLabel="UBICACIÓN">@context.Pro_Ubicacion.ToUpper()</MudTd>
+                <MudTd DataLabel="TIPO">@context.eTipo_Propiedad.TipPro_Nombre</MudTd>
+                <MudTd DataLabel="ESTADO">@context.eEstado_Propiedad.EstPro_Condicion</MudTd>
+                <MudTd DataLabel="VALOR">@context.Pro_Valor</MudTd>
+                <MudTd DataLabel="FEC./HOR. REGISTRO">@context.Pro_FecHorRegistro</MudTd>
+                <MudTd DataLabel="CONDICIÓN">@(Convert.ToBoolean(context.Pro_Condicion) ? "HABILITADO" : "INHABILITADO")</MudTd>
+            </RowTemplate>
+            <PagerContent>
+                <div class="d-flex flex-column align-center">
+                    <MudPagination Size="Size.Small" Rectangular="true" Variant="Variant.Text" BoundaryCount="1" MiddleCount="3" Count="@TotalPagina" SelectedChanged="PageChanged" Class="pa-4" />
+                </div>
+            </PagerContent>
+            <NoRecordsContent>
+                <MudText>No se encontraron registros.</MudText>
+            </NoRecordsContent>
+            <LoadingContent>
+                <MudText>Un momento por favor...</MudText>
+            </LoadingContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+
+<br />
+
+@*Href="@($"propiedaddetalle/{context.Pro_Id}")"*@

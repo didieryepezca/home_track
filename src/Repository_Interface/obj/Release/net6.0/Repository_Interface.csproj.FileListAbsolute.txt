@@ -1,0 +1,15 @@
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\bin\Release\net6.0\Repository_Interface.deps.json
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\bin\Release\net6.0\Repository_Interface.dll
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\bin\Release\net6.0\Repository_Interface.pdb
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\bin\Release\net6.0\Model.dll
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\bin\Release\net6.0\Model.pdb
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.csproj.AssemblyReference.cache
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.GeneratedMSBuildEditorConfig.editorconfig
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.AssemblyInfoInputs.cache
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.AssemblyInfo.cs
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.csproj.CoreCompileInputs.cache
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.csproj.CopyComplete
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.dll
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\refint\Repository_Interface.dll
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\Repository_Interface.pdb
+D:\INGENIERIA\PROYECTO\Home_Track\src\Repository_Interface\obj\Release\net6.0\ref\Repository_Interface.dll

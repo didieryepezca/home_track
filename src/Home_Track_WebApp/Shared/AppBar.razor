@@ -1,0 +1,22 @@
+﻿<MudAppBar Elevation="3">
+	<MudGrid>
+		<MudItem Class="d-flex align-center justify-start mud-width-full" xs="6">
+			<AuthorizeView>
+				<Authorized>
+					<MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="async () => await OnSidebarToggled.InvokeAsync()" />
+				</Authorized>
+		</AuthorizeView>
+		</MudItem>
+		<MudItem Class="d-flex align-center justify-end mud-width-full gap-2" xs="6">
+			@if (_isLightMode)
+				{
+					<MudIconButton Icon="@Icons.Material.Filled.Brightness4" Color="Color.Inherit" OnClick="ToggleTheme" />
+				}
+				else
+				{
+					<MudIconButton Icon="@Icons.Material.Filled.Brightness5" Color="Color.Inherit" OnClick="ToggleTheme" />
+				}
+			<AuthLinks />
+		</MudItem>
+	</MudGrid>
+</MudAppBar>
